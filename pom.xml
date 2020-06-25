@@ -15,6 +15,7 @@
         <module>cloud-eureka-server02</module>
         <module>cloud-provider-payment-02</module>
         <module>cloud-provider-payment-03</module>
+        <module>cloud-consumer-order-zookeeper</module>
     </modules>
     <packaging>pom</packaging>
 
