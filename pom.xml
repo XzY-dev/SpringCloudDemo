@@ -16,6 +16,8 @@
         <module>cloud-provider-payment-02</module>
         <module>cloud-provider-payment-03</module>
         <module>cloud-consumer-order-zookeeper</module>
+        <module>cloud-provider-payment-04</module>
+        <module>cloud-consumer-order-consul</module>
     </modules>
     <packaging>pom</packaging>
 
