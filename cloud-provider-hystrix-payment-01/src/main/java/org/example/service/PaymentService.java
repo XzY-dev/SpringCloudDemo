@@ -1,5 +1,6 @@
 package org.example.service;
 
+import cn.hutool.core.util.IdUtil;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.stereotype.Service;
@@ -51,5 +52,23 @@ public class PaymentService {
     **/
     public String paymentInfoTimeoutHandler(Integer id){
         return "Thread Pool: "+Thread.currentThread().getName()+"服务超时或者运行异常，稍后再试,id: "+id;
+    }
+//-----------服务熔断--------
+    @HystrixCommand(fallbackMethod = "paymentCircuitBreakerFallbackMethod", commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled",value = "true"),//开启熔断器
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),//请求次数
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"),//时间窗口期
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60")//失败率阈值
+    })
+    public String paymentCircuitBreaker(Integer id){
+        if (id<0){
+            throw new RuntimeException("Id 不能为负数！");
+        }
+        String serialNum = IdUtil.simpleUUID();
+        return Thread.currentThread().getName()+"\t"+"调用成功，流水号为： "+serialNum;
+    }
+
+    public String paymentCircuitBreakerFallbackMethod(Integer id){
+        return "id 不能为负数，请更换id："+ id;
     }
 }

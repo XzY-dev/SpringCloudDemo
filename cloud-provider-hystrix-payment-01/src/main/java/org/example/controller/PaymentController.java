@@ -37,4 +37,11 @@ public class PaymentController {
         log.info("###result: "+ result);
         return result;
     }
+//    服务熔断
+    @GetMapping(value = "/payment/hystrix/circuit/{id}")
+    public String paymentInfoCircuitBreaker(@PathVariable("id")Integer id){
+        String result = paymentService.paymentCircuitBreaker(id);
+        log.info("###paymentInfoCircuitBreaker result: "+ result);
+        return result;
+    }
 }
