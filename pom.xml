@@ -25,6 +25,7 @@
         <module>cloud-gateway-gateway</module>
         <module>cloud-config-center</module>
         <module>cloud-config-client-01</module>
+        <module>cloud-config-client-02</module>
     </modules>
     <packaging>pom</packaging>
 
