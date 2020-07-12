@@ -32,6 +32,7 @@
         <module>cloud-alibaba-provider-payment-01</module>
         <module>cloud-alibaba-provider-payment-02</module>
         <module>cloud-alibaba-consumer-order</module>
+        <module>cloud-alibaba-config-client</module>
     </modules>
     <packaging>pom</packaging>
 
