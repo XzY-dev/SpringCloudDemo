@@ -30,6 +30,7 @@
         <module>cloud-stream-rabbitmq-consumer-02</module>
         <module>cloud-stream-rabbitmq-consumer-03</module>
         <module>cloud-alibaba-provider-payment-01</module>
+        <module>cloud-alibaba-provider-payment-02</module>
     </modules>
     <packaging>pom</packaging>
 
