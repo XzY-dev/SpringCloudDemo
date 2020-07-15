@@ -33,6 +33,7 @@
         <module>cloud-alibaba-provider-payment-02</module>
         <module>cloud-alibaba-consumer-order</module>
         <module>cloud-alibaba-config-client</module>
+        <module>cloud-alibaba-sentinel-service8401</module>
     </modules>
     <packaging>pom</packaging>
 
