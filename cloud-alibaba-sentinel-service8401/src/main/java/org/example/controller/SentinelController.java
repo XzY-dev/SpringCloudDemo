@@ -32,6 +32,13 @@ public class SentinelController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return "--------testB";
+        return "--------testD";
+    }
+
+    //异常降级
+    @GetMapping("/testE")
+    public String testE(){
+        int a = 10/0;
+        return "--------testE";
     }
 }
