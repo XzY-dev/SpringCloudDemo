@@ -3,6 +3,8 @@ package org.example.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author XZY
  * @version V1.0
@@ -19,6 +21,17 @@ public class SentinelController {
 
     @GetMapping("/testB")
     public String testB(){
+        return "--------testB";
+    }
+
+    //RT
+    @GetMapping("/testD")
+    public String testD(){
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "--------testB";
     }
 }
