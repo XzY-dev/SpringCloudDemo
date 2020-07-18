@@ -2,7 +2,7 @@ server:
   port: 84
 spring:
   application:
-    name: nacos-order-consumer
+    name: cloud-alibaba-sentinel-service
   cloud:
     nacos:
       discovery:
@@ -11,6 +11,14 @@ spring:
       transport:
         dashboard: 192.168.198.130:8080
         port: 8719
+        datasource:
+          ds1:
+            nacos:
+              server-addr: 192.168.198.130:8848
+              dataId: cloud-alibaba-sentinel-service
+              groupId: DEFAULT_GROUP
+              data-type: json
+              rule-type: flow
 
 
 #激活sentinel对feign的支持
