@@ -5,6 +5,7 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entities.CommonResult;
 import org.example.entities.Payment;
+import org.example.service.PaymentService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,4 +53,13 @@ public class OrderController {
         return new CommonResult<>(445, "blockHandler-sentinel 限流，无此流水号：blockException" + exception.getMessage(), payment);
     }
 
+
+    //##############OpenFegin################
+    @Resource
+    private PaymentService paymentService;
+
+    @GetMapping("/consumer/order/{id}")
+    public CommonResult payment(@PathVariable("id") Long id){
+        return paymentService.paymentSQL(id);
+    }
 }
